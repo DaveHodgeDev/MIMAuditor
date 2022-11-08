@@ -23,7 +23,7 @@
     <DebugSymbols>true</DebugSymbols>
     <DebugType>full</DebugType>
     <Optimize>false</Optimize>
-    <OutputPath>D:\MIM_Audit\Scavenger\</OutputPath>
+    <OutputPath>C:\Users\dahodge\Desktop\MIM_Auditor\MCS.EventLogMonitor\bin\Debug\</OutputPath>
     <DefineConstants>DEBUG;TRACE</DefineConstants>
     <ErrorReport>prompt</ErrorReport>
     <WarningLevel>4</WarningLevel>
@@ -63,6 +63,7 @@
     <ProjectReference Include="..\MCS.EventLogMonitor\MCS.EventLogMonitor.csproj">
       <Project>{f028444c-2e08-43d0-bf55-762960a5f103}</Project>
       <Name>MCS.EventLogMonitor</Name>
+      <Private>False</Private>
     </ProjectReference>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />

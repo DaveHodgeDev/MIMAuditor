@@ -40,22 +40,4 @@ Global
 	GlobalSection(ExtensibilityGlobals) = postSolution
 		SolutionGuid = {4F85B635-F421-48CF-B1F7-FF027E97BC42}
 	EndGlobalSection
-	GlobalSection(TeamFoundationVersionControl) = preSolution
-		SccNumberOfProjects = 5
-		SccEnterpriseProvider = {4CA58AB2-18FA-4F8D-95D4-32DDF27D184C}
-		SccTeamFoundationServer = https://paulwu-mcs.visualstudio.com/
-		SccLocalPath0 = .
-		SccProjectUniqueName1 = EventLogExtractorConsole\\EventLogExtractorConsole.csproj
-		SccProjectName1 = EventLogExtractorConsole
-		SccLocalPath1 = EventLogExtractorConsole
-		SccProjectUniqueName2 = MCS.EventLogScavanger\\MCS.EventLogScavanger.csproj
-		SccProjectName2 = MCS.EventLogScavanger
-		SccLocalPath2 = MCS.EventLogScavanger
-		SccProjectUniqueName3 = MCS.EventLogMonitor.WindowsService\\MCS.EventLogMonitor.WindowsService.csproj
-		SccProjectName3 = MCS.EventLogMonitor.WindowsService
-		SccLocalPath3 = MCS.EventLogMonitor.WindowsService
-		SccProjectUniqueName4 = MCS.EventLogMonitor\\MCS.EventLogMonitor.csproj
-		SccProjectName4 = MCS.EventLogMonitor
-		SccLocalPath4 = MCS.EventLogMonitor
-	EndGlobalSection
 EndGlobal
