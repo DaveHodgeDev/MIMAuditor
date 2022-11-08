@@ -1,0 +1,10 @@
+C:\Users\C194568\Source\Workspaces\Azure\HybridReporting\EventLogExtractorConsole\EventLogExtractorConsole\bin\Debug\EventLogExtractorConsole.exe.config
+C:\Users\C194568\Source\Workspaces\Azure\HybridReporting\EventLogExtractorConsole\EventLogExtractorConsole\bin\Debug\EventLogExtractorConsole.exe
+C:\Users\C194568\Source\Workspaces\Azure\HybridReporting\EventLogExtractorConsole\EventLogExtractorConsole\bin\Debug\EventLogExtractorConsole.pdb
+C:\Users\C194568\Source\Workspaces\Azure\HybridReporting\EventLogExtractorConsole\EventLogExtractorConsole\bin\Debug\Newtonsoft.Json.dll
+C:\Users\C194568\Source\Workspaces\Azure\HybridReporting\EventLogExtractorConsole\EventLogExtractorConsole\bin\Debug\Newtonsoft.Json.xml
+C:\Users\C194568\Source\Workspaces\Azure\HybridReporting\EventLogExtractorConsole\EventLogExtractorConsole\obj\Debug\EventLogExtractorConsole.csproj.CoreCompileInputs.cache
+C:\Users\C194568\Source\Workspaces\Azure\HybridReporting\EventLogExtractorConsole\EventLogExtractorConsole\obj\Debug\EventLogExtractorConsole.csproj.CopyComplete
+C:\Users\C194568\Source\Workspaces\Azure\HybridReporting\EventLogExtractorConsole\EventLogExtractorConsole\obj\Debug\EventLogExtractorConsole.exe
+C:\Users\C194568\Source\Workspaces\Azure\HybridReporting\EventLogExtractorConsole\EventLogExtractorConsole\obj\Debug\EventLogExtractorConsole.pdb
+C:\Users\C194568\Source\Workspaces\Azure\HybridReporting\EventLogExtractorConsole\EventLogExtractorConsole\obj\Debug\EventLogExtractorConsole.csprojAssemblyReference.cache

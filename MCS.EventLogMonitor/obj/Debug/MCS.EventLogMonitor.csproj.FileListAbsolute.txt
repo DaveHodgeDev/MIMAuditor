@@ -1,0 +1,7 @@
+D:\MIM_Audit\Service\MCS.EventLogMonitor.dll
+C:\Users\C194568\Source\Workspaces\Azure\HybridReporting\EventLogExtractorConsole\MCS.EventLogMonitor\obj\Debug\MCS.EventLogMonitor.csproj.CoreCompileInputs.cache
+C:\Users\C194568\Source\Workspaces\Azure\HybridReporting\EventLogExtractorConsole\MCS.EventLogMonitor\obj\Debug\MCS.EventLogMonitor.csproj.CopyComplete
+C:\Users\C194568\Source\Workspaces\Azure\HybridReporting\EventLogExtractorConsole\MCS.EventLogMonitor\obj\Debug\MCS.EventLogMonitor.dll
+C:\Users\C194568\Source\Workspaces\Azure\HybridReporting\EventLogExtractorConsole\MCS.EventLogMonitor\obj\Debug\MCS.EventLogMonitor.pdb
+D:\MIM_Audit\Service\MCS.EventLogMonitor.pdb
+C:\Users\C194568\Source\Workspaces\Azure\HybridReporting\EventLogExtractorConsole\MCS.EventLogMonitor\obj\Debug\MCS.EventLogMonitor.csprojAssemblyReference.cache

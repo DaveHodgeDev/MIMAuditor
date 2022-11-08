@@ -1,0 +1,61 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio Version 16
+VisualStudioVersion = 16.0.29613.14
+MinimumVisualStudioVersion = 10.0.40219.1
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "EventLogExtractorConsole", "EventLogExtractorConsole\EventLogExtractorConsole.csproj", "{0E1E465D-1BE8-415F-A2CF-D8684BCB28D4}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "MCS.EventLogScavanger", "MCS.EventLogScavanger\MCS.EventLogScavanger.csproj", "{182BC4FE-9EE3-41A5-86AA-EFF2A2A73310}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "MCS.EventLogMonitor.WindowsService", "MCS.EventLogMonitor.WindowsService\MCS.EventLogMonitor.WindowsService.csproj", "{3A076C94-61E6-4D43-9F35-8418AA185099}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "MCS.EventLogMonitor", "MCS.EventLogMonitor\MCS.EventLogMonitor.csproj", "{F028444C-2E08-43D0-BF55-762960A5F103}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{0E1E465D-1BE8-415F-A2CF-D8684BCB28D4}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{0E1E465D-1BE8-415F-A2CF-D8684BCB28D4}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{0E1E465D-1BE8-415F-A2CF-D8684BCB28D4}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{0E1E465D-1BE8-415F-A2CF-D8684BCB28D4}.Release|Any CPU.Build.0 = Release|Any CPU
+		{182BC4FE-9EE3-41A5-86AA-EFF2A2A73310}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{182BC4FE-9EE3-41A5-86AA-EFF2A2A73310}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{182BC4FE-9EE3-41A5-86AA-EFF2A2A73310}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{182BC4FE-9EE3-41A5-86AA-EFF2A2A73310}.Release|Any CPU.Build.0 = Release|Any CPU
+		{3A076C94-61E6-4D43-9F35-8418AA185099}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{3A076C94-61E6-4D43-9F35-8418AA185099}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{3A076C94-61E6-4D43-9F35-8418AA185099}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{3A076C94-61E6-4D43-9F35-8418AA185099}.Release|Any CPU.Build.0 = Release|Any CPU
+		{F028444C-2E08-43D0-BF55-762960A5F103}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{F028444C-2E08-43D0-BF55-762960A5F103}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{F028444C-2E08-43D0-BF55-762960A5F103}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{F028444C-2E08-43D0-BF55-762960A5F103}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(ExtensibilityGlobals) = postSolution
+		SolutionGuid = {4F85B635-F421-48CF-B1F7-FF027E97BC42}
+	EndGlobalSection
+	GlobalSection(TeamFoundationVersionControl) = preSolution
+		SccNumberOfProjects = 5
+		SccEnterpriseProvider = {4CA58AB2-18FA-4F8D-95D4-32DDF27D184C}
+		SccTeamFoundationServer = https://paulwu-mcs.visualstudio.com/
+		SccLocalPath0 = .
+		SccProjectUniqueName1 = EventLogExtractorConsole\\EventLogExtractorConsole.csproj
+		SccProjectName1 = EventLogExtractorConsole
+		SccLocalPath1 = EventLogExtractorConsole
+		SccProjectUniqueName2 = MCS.EventLogScavanger\\MCS.EventLogScavanger.csproj
+		SccProjectName2 = MCS.EventLogScavanger
+		SccLocalPath2 = MCS.EventLogScavanger
+		SccProjectUniqueName3 = MCS.EventLogMonitor.WindowsService\\MCS.EventLogMonitor.WindowsService.csproj
+		SccProjectName3 = MCS.EventLogMonitor.WindowsService
+		SccLocalPath3 = MCS.EventLogMonitor.WindowsService
+		SccProjectUniqueName4 = MCS.EventLogMonitor\\MCS.EventLogMonitor.csproj
+		SccProjectName4 = MCS.EventLogMonitor
+		SccLocalPath4 = MCS.EventLogMonitor
+	EndGlobalSection
+EndGlobal
