@@ -109,3 +109,7 @@ C:\Users\C194568\Source\Workspaces\Azure\HybridReporting\EventLogExtractorConsol
 D:\MIM_Audit\Service\MCS.EventLogMonitor.WindowsService.exe.config
 D:\MIM_Audit\Service\MCS.EventLogMonitor.WindowsService.exe
 D:\MIM_Audit\Service\MCS.EventLogMonitor.WindowsService.pdb
+C:\Users\dahodge\Desktop\MIM_Auditor\MCS.EventLogMonitor.WindowsService\obj\Debug\MCS.EventLogMonitor.WindowsService.csproj.AssemblyReference.cache
+C:\Users\dahodge\Desktop\MIM_Auditor\MCS.EventLogMonitor.WindowsService\obj\Debug\MCS.EventLogMonitor.WindowsService.csproj.CoreCompileInputs.cache
+C:\Users\dahodge\Desktop\MIM_Auditor\MCS.EventLogMonitor.WindowsService\obj\Debug\MCS.EventLogMonitor.WindowsService.exe
+C:\Users\dahodge\Desktop\MIM_Auditor\MCS.EventLogMonitor.WindowsService\obj\Debug\MCS.EventLogMonitor.WindowsService.pdb

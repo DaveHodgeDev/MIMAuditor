@@ -107,3 +107,7 @@ C:\Users\C194568\Source\Workspaces\Azure\HybridReporting\EventLogExtractorConsol
 D:\MIM_Audit\Scavenger\MCS.EventLogScavanger.exe.config
 D:\MIM_Audit\Scavenger\MCS.EventLogScavanger.exe
 D:\MIM_Audit\Scavenger\MCS.EventLogScavanger.pdb
+C:\Users\dahodge\Desktop\MIM_Auditor\MCS.EventLogScavanger\obj\Debug\MCS.EventLogScavanger.csproj.AssemblyReference.cache
+C:\Users\dahodge\Desktop\MIM_Auditor\MCS.EventLogScavanger\obj\Debug\MCS.EventLogScavanger.csproj.CoreCompileInputs.cache
+C:\Users\dahodge\Desktop\MIM_Auditor\MCS.EventLogScavanger\obj\Debug\MCS.EventLogScavanger.exe
+C:\Users\dahodge\Desktop\MIM_Auditor\MCS.EventLogScavanger\obj\Debug\MCS.EventLogScavanger.pdb

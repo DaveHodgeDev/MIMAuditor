@@ -1,9 +1,10 @@
-﻿1.	Login to the MIM Service server as the MIM Installer account
+﻿1.	Complete the Create Log Analytics Workspace tasks as described in the text file.
 
-2.	Enable Hybrid Reporting Request Logging
+2. Login to the MIM Service server as the MIM Installer account
+
+3.	Enable Hybrid Reporting Request Logging
     • Launch a PowerShell window as an Administrator
-
-3.	Run the Enable_Hybrid_Reporting.ps1 script
+    • Run the Enable_Hybrid_Reporting.ps1 script
 
 4.	Compile or download the latest version of the MIM Auditor or extract the zip file contents to C:\Program Files\MIMAuditor
 Note: Ensure jsonFileDirectory and logFile locations are created on a volume with adequate disk space.
