@@ -1,0 +1,17 @@
+Create Log Analytics Workspace
+
+1.1	Create the Log Analytics Workspace
+
+1.	Login to the Azure Portal (https://portal.azure.com )
+2.	Open a "Cloud Shell" (PowerShell) from the Portal
+3.	Create a new Resource Group (MIMAuditor)
+4.	Create a new Log Analytics Workspace (MIMAuditor). Associate the workspace with the new Resource Group. Save the Customer ID and Workspace Key for later usage.
+
+	New-AzResourceGroup -Name 'RG-MIMAUDITOR' -Location 'East US'
+	New-AzOperationalInsightsWorkspace -Location 'East US' -Name 'MIM-Auditor' -Sku standard -ResourceGroupName 'RG-MIMAUDITOR'
+	Get-AzOperationalInsightsWorkspace -Name MIM-AUDITOR -ResourceGroupName RG-MIMAuditor | Select CustomerID
+	Get-AzOperationalInsightsWorkspace -Name MIM-AUDITOR -ResourceGroupName RG-MIMAuditor | Get-AzOperationalInsightsWorkspaceSharedKeys
+
+5.	Adjust the retention days (Log Analytics workspaces->MIM-Auditor->Usage and Estimated Costs)
+	
+	•	Select the Data Retention (Days) in the right pane of the console to the customer's retention requirements

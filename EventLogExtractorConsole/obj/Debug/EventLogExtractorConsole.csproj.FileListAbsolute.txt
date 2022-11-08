@@ -8,3 +8,13 @@ C:\Users\C194568\Source\Workspaces\Azure\HybridReporting\EventLogExtractorConsol
 C:\Users\C194568\Source\Workspaces\Azure\HybridReporting\EventLogExtractorConsole\EventLogExtractorConsole\obj\Debug\EventLogExtractorConsole.exe
 C:\Users\C194568\Source\Workspaces\Azure\HybridReporting\EventLogExtractorConsole\EventLogExtractorConsole\obj\Debug\EventLogExtractorConsole.pdb
 C:\Users\C194568\Source\Workspaces\Azure\HybridReporting\EventLogExtractorConsole\EventLogExtractorConsole\obj\Debug\EventLogExtractorConsole.csprojAssemblyReference.cache
+C:\Users\dahodge\Desktop\MIM_Auditor\EventLogExtractorConsole\bin\Debug\EventLogExtractorConsole.exe.config
+C:\Users\dahodge\Desktop\MIM_Auditor\EventLogExtractorConsole\bin\Debug\EventLogExtractorConsole.exe
+C:\Users\dahodge\Desktop\MIM_Auditor\EventLogExtractorConsole\bin\Debug\EventLogExtractorConsole.pdb
+C:\Users\dahodge\Desktop\MIM_Auditor\EventLogExtractorConsole\bin\Debug\Newtonsoft.Json.dll
+C:\Users\dahodge\Desktop\MIM_Auditor\EventLogExtractorConsole\bin\Debug\Newtonsoft.Json.xml
+C:\Users\dahodge\Desktop\MIM_Auditor\EventLogExtractorConsole\obj\Debug\EventLogExtractorConsole.csproj.AssemblyReference.cache
+C:\Users\dahodge\Desktop\MIM_Auditor\EventLogExtractorConsole\obj\Debug\EventLogExtractorConsole.csproj.CoreCompileInputs.cache
+C:\Users\dahodge\Desktop\MIM_Auditor\EventLogExtractorConsole\obj\Debug\EventLogExtractorConsole.csproj.CopyComplete
+C:\Users\dahodge\Desktop\MIM_Auditor\EventLogExtractorConsole\obj\Debug\EventLogExtractorConsole.exe
+C:\Users\dahodge\Desktop\MIM_Auditor\EventLogExtractorConsole\obj\Debug\EventLogExtractorConsole.pdb

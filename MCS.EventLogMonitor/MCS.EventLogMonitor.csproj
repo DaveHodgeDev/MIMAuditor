@@ -53,5 +53,13 @@
     <Compile Include="RequestParameterEntry.cs" />
     <Compile Include="RequestParameterEntryReference.cs" />
   </ItemGroup>
+  <ItemGroup>
+    <None Include="Enable_Hybrid_Reporting.ps1" />
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="Create Log Analytics Workspace.txt" />
+    <Content Include="Example KQL Queries.txt" />
+    <Content Include="Installation Instructions.txt" />
+  </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>

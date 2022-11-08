@@ -1,0 +1,89 @@
+﻿
+Run the KQL Query:
+1.	Login to Azure Portal (https://portal.azure.com)
+2.	Select Log Analytics Workspace
+3.	Select the MIMAuditor workspace
+4.	Select “View Logs” 
+
+The following queries are generic KQL queries that show object administrative tasks events within the last hour. 
+
+These templates could also be used to create reports for Set, MPR, and Workflow Administration Activity (Creation/modification/deletion).
+
+Note: there may be a slight delay for the events to appear in the Log Analytics Workspace.
+
+
+New User KQL Query
+------------------
+MIMHybrid_CL 
+| project CreatedTime_t, CommittedTime_t, Type_s, RequestStatus_s, TargetObjectType_s, Operation_s,   
+ DisplayName_s, 
+Target_DisplayName_s, Target_AccountName_s, Target_DepartmentNumber_s, Target_EmployeeType_s,
+Creator_HybridObjectID_g, Creator_DisplayName_s, Creator_AccountName_s, 
+Approver_DisplayName_s, Approver_AccountName_s, Reason_s, Justification_s, RequestParameter_s, TimeGenerated, EventId_d  
+| where TargetObjectType_s == "Person" and Operation_s == "Create" and RequestStatus_s == "Completed" and TimeGenerated > ago(1h)
+
+New Contact KQL Query
+---------------------
+MIMHybrid_CL 
+| project CreatedTime_t, CommittedTime_t, Type_s, RequestStatus_s, TargetObjectType_s, Operation_s,   
+ DisplayName_s, 
+Target_DisplayName_s, Target_AccountName_s, Target_DepartmentNumber_s, Target_EmployeeType_s,
+Creator_HybridObjectID_g, Creator_DisplayName_s, Creator_AccountName_s, 
+Approver_DisplayName_s, Approver_AccountName_s, Reason_s, Justification_s, RequestParameter_s, TimeGenerated, EventId_d  
+| where TargetObjectType_s == "mcsContact" and Operation_s == "Create" and RequestStatus_s == "Completed" and TimeGenerated > ago(1h)
+
+New Group KQL Query
+---------------------
+MIMHybrid_CL 
+| project CreatedTime_t, CommittedTime_t, Type_s, RequestStatus_s, TargetObjectType_s, Operation_s,   
+ DisplayName_s, 
+Target_DisplayName_s, Target_AccountName_s, 
+Creator_HybridObjectID_g, Creator_DisplayName_s, Creator_AccountName_s, 
+Approver_DisplayName_s, Approver_AccountName_s, Reason_s, Justification_s, RequestParameter_s, TimeGenerated, EventId_d  
+| where TargetObjectType_s == "Group" and Operation_s == "Create" and RequestStatus_s == "Completed" and TimeGenerated > ago(1h)
+| order by TimeGenerated asc
+
+User Modified Query
+---------------------
+MIMHybrid_CL 
+| project CreatedTime_t, CommittedTime_t, Type_s, RequestStatus_s, TargetObjectType_s, Operation_s,   
+ DisplayName_s, 
+Target_DisplayName_s, Target_AccountName_s, Target_DepartmentNumber_s, Target_EmployeeType_s,
+Creator_HybridObjectID_g, Creator_DisplayName_s, Creator_AccountName_s, 
+Approver_DisplayName_s, Approver_AccountName_s, Reason_s, Justification_s, RequestParameter_s, TimeGenerated, EventId_d  
+| where TargetObjectType_s == "Person" and Operation_s == "Put" and RequestStatus_s == "Completed" and TimeGenerated > ago(1h)
+
+Contact Modified Query
+---------------------
+MIMHybrid_CL 
+| project CreatedTime_t, CommittedTime_t, Type_s, RequestStatus_s, TargetObjectType_s, Operation_s,   
+ DisplayName_s, 
+Target_DisplayName_s, Target_AccountName_s, Target_DepartmentNumber_s, Target_EmployeeType_s,
+Creator_HybridObjectID_g, Creator_DisplayName_s, Creator_AccountName_s, 
+Approver_DisplayName_s, Approver_AccountName_s, Reason_s, Justification_s, RequestParameter_s, TimeGenerated, EventId_d  
+| where TargetObjectType_s == "mcsContact" and Operation_s == "Put" and RequestStatus_s == "Completed" and TimeGenerated > ago(1h)
+
+
+Group Modified Query
+---------------------
+MIMHybrid_CL 
+| project CreatedTime_t, CommittedTime_t, Type_s, RequestStatus_s, TargetObjectType_s, Operation_s,   
+ DisplayName_s, 
+Target_DisplayName_s, Target_AccountName_s, 
+Creator_HybridObjectID_g, Creator_DisplayName_s, Creator_AccountName_s, 
+Approver_DisplayName_s, Approver_AccountName_s, Reason_s, Justification_s, RequestParameter_s, TimeGenerated, EventId_d  
+| where TargetObjectType_s == "Group" and Operation_s == "Put" and RequestStatus_s == "Completed" and TimeGenerated > ago(1h)
+| order by TimeGenerated asc
+
+
+User Deleted Query
+------------------
+MIMHybrid_CL 
+| project CreatedTime_t, CommittedTime_t, Type_s, RequestStatus_s, TargetObjectType_s, Operation_s,   
+ DisplayName_s, 
+Target_DisplayName_s, Target_AccountName_s, Target_DepartmentNumber_s, Target_EmployeeType_s,
+Creator_HybridObjectID_g, Creator_DisplayName_s, Creator_AccountName_s, 
+Approver_DisplayName_s, Approver_AccountName_s, Reason_s, Justification_s, RequestParameter_s, TimeGenerated, EventId_d  
+| where TargetObjectType_s == "Person" and Operation_s == "Delete" and RequestStatus_s == "Completed" and TimeGenerated > ago(1h)
+
+
