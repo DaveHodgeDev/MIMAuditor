@@ -12,3 +12,4 @@ C:\Users\dahodge\Desktop\MIM_Auditor\MCS.EventLogMonitor\obj\Debug\MCS.EventLogM
 C:\Users\dahodge\Desktop\MIM_Auditor\MCS.EventLogMonitor\obj\Debug\MCS.EventLogMonitor.csproj.CopyComplete
 C:\Users\dahodge\Desktop\MIM_Auditor\MCS.EventLogMonitor\obj\Debug\MCS.EventLogMonitor.dll
 C:\Users\dahodge\Desktop\MIM_Auditor\MCS.EventLogMonitor\obj\Debug\MCS.EventLogMonitor.pdb
+C:\Users\dahodge\Desktop\MIM_Auditor\MCS.EventLogMonitor\obj\Debug\MCS.EventLogMonitor.csproj.AssemblyReference.cache

@@ -1,23 +1,16 @@
-﻿1.	Complete the Create Log Analytics Workspace tasks as described in the text file.
+﻿1. Complete the Create Log Analytics Workspace tasks as described in the text file.
 
 2. Login to the MIM Service server as the MIM Installer account
 
-3.	Enable Hybrid Reporting Request Logging
+3. Enable Hybrid Reporting Request Logging
     • Launch a PowerShell window as an Administrator
     • Run the Enable_Hybrid_Reporting.ps1 script
 
-4.	Compile or download the latest version of the MIM Auditor or extract the zip file contents to C:\Program Files\MIMAuditor
-Note: Ensure jsonFileDirectory and logFile locations are created on a volume with adequate disk space.
+4. Compile or download the latest version of the MIM Auditor or extract the zip file contents to C:\Program Files\Microsoft\MIM Auditor
+#Note: Ensure jsonFileDirectory and logFile locations are created on a volume with adequate disk space.
 
-5.	Create the logfile and jsonFileDirectory folder
-    • C:\Program Files\MIMAuditor\Logs
-    • C:\Program Files\MIMAuditor\Requests
+5. Run Setup.exe as an Administrator to install MIM Auditor 
 
 6.	Adjust the values of the configuration files (App.Config):
     In the MIM Auditor folder, edit the MCS.EventLogMonitor.WindowsService.exe.config file. 
-    Update the path to reflect your installation folder and add your log analytics workspace key and ID.
-
-7.	Create the Windows Service
-    New-Service -Name MIMAuditor -DisplayName "MIM Auditor" -BinaryPathName 'C:\Program Files\Service\MCS.EventLogMonitor.WindowsService.exe' -StartupType Automatic
-
- 
+    Update the path to reflect your installation folder and add your log analytics workspace key and ID. 

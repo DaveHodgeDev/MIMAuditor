@@ -1,13 +1,13 @@
 <?xml version="1.0" encoding="utf-8"?>
 <configuration>
   <startup>
-    <supportedRuntime version="v4.0" sku=".NETFramework,Version=v4.6.1" />
+    <supportedRuntime version="v4.0" sku=".NETFramework,Version=v4.6" />
   </startup>
   <appSettings>
     <add key="debug" value="yes" />
     <add key="logName" value="Identity Manager Request Log" />
-    <add key="logFile" value="C:\Program Files\Microsoft\MIM Auditor\Logs\Scavenger_Log.txt" />
-    <add key="jsonFileDirectory" value="C:\Program Files\Microsoft\MIM Auditor\Requests" />
+    <add key="logFile" value="D:\MIM_Audit\logOutput.txt" />
+    <add key="jsonFileDirectory" value="D:\MIM_Audit\Requests" />
     <add key="workspaceId" value="" />
     <add key="workspaceKey" value="" />
     <add key="workspaceLogName" value="MIMHybrid" />

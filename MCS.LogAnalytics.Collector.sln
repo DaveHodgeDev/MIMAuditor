@@ -11,6 +11,8 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "MCS.EventLogMonitor.Windows
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "MCS.EventLogMonitor", "MCS.EventLogMonitor\MCS.EventLogMonitor.csproj", "{F028444C-2E08-43D0-BF55-762960A5F103}"
 EndProject
+Project("{54435603-DBB4-11D2-8724-00A0C9A8B90C}") = "Setup", "Setup\Setup.vdproj", "{68A813AE-359D-4B7A-8ED0-E948490D8A69}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -33,6 +35,9 @@ Global
 		{F028444C-2E08-43D0-BF55-762960A5F103}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{F028444C-2E08-43D0-BF55-762960A5F103}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{F028444C-2E08-43D0-BF55-762960A5F103}.Release|Any CPU.Build.0 = Release|Any CPU
+		{68A813AE-359D-4B7A-8ED0-E948490D8A69}.Debug|Any CPU.ActiveCfg = Debug
+		{68A813AE-359D-4B7A-8ED0-E948490D8A69}.Debug|Any CPU.Build.0 = Debug
+		{68A813AE-359D-4B7A-8ED0-E948490D8A69}.Release|Any CPU.ActiveCfg = Release
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE

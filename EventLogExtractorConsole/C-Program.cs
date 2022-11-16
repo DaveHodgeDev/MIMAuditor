@@ -15,9 +15,7 @@ namespace EventLogExtractorConsole
 {
     class Program
     {
-
         const string EventSource = "MCS.LogAnalytics.Collector";//MCS.HybridReportLogger
-
         const string EventLogName = "MCS Azure Monitor Workspace Collector";
 
         // Auditing tool's LogFile
@@ -25,7 +23,7 @@ namespace EventLogExtractorConsole
 
         // Path to not uploaded JSON Files
         public static string jsonFileDirectory { get; set; }
-                
+
         public static LogAnalyticsWorkspaceHelper API { get; set; }
 
         public static bool DebugMode { get; set; }
@@ -209,9 +207,9 @@ namespace EventLogExtractorConsole
             // *************************************************************************************
             ConsoleKeyInfo ketInfo;
             do
-                {
-                    ketInfo = Console.ReadKey();
-                }
+            {
+                ketInfo = Console.ReadKey();
+            }
             while (ketInfo.Key != ConsoleKey.Spacebar);
 
             // *************************************************************************************
@@ -259,8 +257,8 @@ namespace EventLogExtractorConsole
                     case 4137:
                         message = entry.Message;
                         string pattern = string.Empty;
-                        
-                        
+
+
                         //if (DebugMode) pattern = "Request '([^']+)', message ([0-9]+) out of ([0-9]+): (.*)";   //pattern to detect unit-test
                         //else 
 
