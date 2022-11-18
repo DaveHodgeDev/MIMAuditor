@@ -1,0 +1,15 @@
+C:\Users\C194568\Source\Workspaces\Azure\HybridReporting\EventLogExtractorConsole\MCS.EventLogMonitor\obj\Debug\MCS.EventLogMonitor.csproj.CoreCompileInputs.cache
+C:\Users\C194568\Source\Workspaces\Azure\HybridReporting\EventLogExtractorConsole\MCS.EventLogMonitor\obj\Debug\MCS.EventLogMonitor.csproj.CopyComplete
+C:\Users\C194568\Source\Workspaces\Azure\HybridReporting\EventLogExtractorConsole\MCS.EventLogMonitor\obj\Debug\MCS.EventLogMonitor.dll
+C:\Users\C194568\Source\Workspaces\Azure\HybridReporting\EventLogExtractorConsole\MCS.EventLogMonitor\obj\Debug\MCS.EventLogMonitor.pdb
+C:\Users\C194568\Source\Workspaces\Azure\HybridReporting\EventLogExtractorConsole\MCS.EventLogMonitor\obj\Debug\MCS.EventLogMonitor.csprojAssemblyReference.cache
+D:\MIM_Audit\Service\MCS.EventLogMonitor.dll
+C:\Users\dahodge\Desktop\MIM_Auditor\MCS.EventLogMonitor\bin\Debug\MCS.EventLogMonitor.dll
+C:\Users\dahodge\Desktop\MIM_Auditor\MCS.EventLogMonitor\bin\Debug\MCS.EventLogMonitor.pdb
+C:\Users\dahodge\Desktop\MIM_Auditor\MCS.EventLogMonitor\bin\Debug\Newtonsoft.Json.dll
+C:\Users\dahodge\Desktop\MIM_Auditor\MCS.EventLogMonitor\bin\Debug\Newtonsoft.Json.xml
+C:\Users\dahodge\Desktop\MIM_Auditor\MCS.EventLogMonitor\obj\Debug\MCS.EventLogMonitor.csproj.AssemblyReference.cache
+C:\Users\dahodge\Desktop\MIM_Auditor\MCS.EventLogMonitor\obj\Debug\MCS.EventLogMonitor.csproj.CoreCompileInputs.cache
+C:\Users\dahodge\Desktop\MIM_Auditor\MCS.EventLogMonitor\obj\Debug\MCS.EventLogMonitor.csproj.CopyComplete
+C:\Users\dahodge\Desktop\MIM_Auditor\MCS.EventLogMonitor\obj\Debug\MCS.EventLogMonitor.dll
+C:\Users\dahodge\Desktop\MIM_Auditor\MCS.EventLogMonitor\obj\Debug\MCS.EventLogMonitor.pdb
