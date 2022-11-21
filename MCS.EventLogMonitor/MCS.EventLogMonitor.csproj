@@ -11,7 +11,7 @@
     <AssemblyName>MCS.EventLogMonitor</AssemblyName>
     <TargetFrameworkVersion>v4.6.1</TargetFrameworkVersion>
     <FileAlignment>512</FileAlignment>
-    <Deterministic>true</Deterministic>
+    <Deterministic>false</Deterministic>
     <SccProjectName>SAK</SccProjectName>
     <SccLocalPath>SAK</SccLocalPath>
     <SccAuxPath>SAK</SccAuxPath>
@@ -53,14 +53,6 @@
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="RequestParameterEntry.cs" />
     <Compile Include="RequestParameterEntryReference.cs" />
-  </ItemGroup>
-  <ItemGroup>
-    <None Include="Enable_Hybrid_Reporting.ps1" />
-  </ItemGroup>
-  <ItemGroup>
-    <Content Include="Create Log Analytics Workspace.txt" />
-    <Content Include="Example KQL Queries.txt" />
-    <Content Include="Installation Instructions.txt" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>

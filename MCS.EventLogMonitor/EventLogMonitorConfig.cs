@@ -9,7 +9,7 @@ namespace MCS.EventLogMonitor
     {
         public LogAnalyticsWorkspaceHelper API { get; set; }
 
-        public string EventSource = "MCS.LogAnalytics.Collector";//MCS.HybridReportLogger
+        public string EventSource = "MCS.LogAnalytics.Collector";
 
         public string EventLogName = "MCS Azure Monitor Workspace Collector";
 
