@@ -13,99 +13,99 @@ namespace MCS.EventLogMonitor
     {
         #region Json Properties
 
-        // *********************************************************
-        // Event Log entry data
-        // *********************************************************
-        public DateTime EventGeneratedTime { get; set; }
-
-        public string MachineName { get; set; }
-
-        public string EntryType { get; set; }
-
-        public string Source { get; set; }
-
-        public long EventId { get; set; }
-
-        public string User { get; set; }
-
-        // *********************************************************
-        // Request
-        // *********************************************************
-        public string ObjectType { get; set; }
-
-        public string RequestStatus { get; set; }
-
-        public string Type { get; set; }
-
-        //public string RequestStatusDetail { get; set; }
-
-        // CreatedTime - Time request was created in MIM
-        // Already in UTC Format
-        public DateTime CreatedTime { get; set; }
-
-        //Already in UTC Format
-        public DateTime CommittedTime { get; set; }
-
-        public string DisplayName { get; set; }
-
-        public string HybridObjectId { get; set; }
-
-        public string TargetObjectType { get; set; }
-
-        public string Operation { get; set; }
-
-        public string ParentRequest { get; set; }
-
-        public string Justification { get; set; }
-
-        // *********************************************************
-        // Target Settings:
-        // *********************************************************
-        public string Target_HybridObjectID { get; set; }
-
-        public string Target_ObjectType { get; set; }
-
-        public string Target { get; set; }
-
-        public string Target_AccountName { get; set; }
-
-        public string Target_DisplayName { get; set; }
-
-        public string Target_Department { get; set; }
-
-        public string Target_DepartmentNumber { get; set; }
-
-        public string Target_EmployeeType { get; set; }
-
-        public string Target_EmployeeStatus { get; set; }
-
-        public string Target_ApprovalDuration { get; set; }
-
-        public string Target_Decision { get; set; }
-
-        public string Target_Reason { get; set; }
-
-        public string Target_ApprovalStatus { get; set; }
-
-        public string Reason { get; set; }
-
-        // *********************************************************
+        //*********************************************************
         // Creator Settings:
-        // *********************************************************
+        //*********************************************************
         public string Creator_AccountName { get; set; }
 
         public string Creator_DisplayName { get; set; }
 
         public string Creator_HybridObjectID { get; set; }
 
-        // *********************************************************
+        //*********************************************************
+        // Event Log entry data
+        //*********************************************************
+        public string EntryType { get; set; }
+
+        public DateTime EventGeneratedTime { get; set; }
+
+        public long EventId { get; set; }
+
+        public string MachineName { get; set; }
+
+        public string Source { get; set; }
+
+        public string User { get; set; }
+
+        //*********************************************************
+        // Request
+        //*********************************************************
+
+        //Already in UTC Format
+        public DateTime CommittedTime { get; set; }
+
+        // Already in UTC Format
+        public DateTime CreatedTime { get; set; }
+
+        public string DisplayName { get; set; }
+
+        public string HybridObjectId { get; set; }
+
+        public string Justification { get; set; }
+
+        public string ObjectType { get; set; }
+
+        public string Operation { get; set; }
+
+        public string ParentRequest { get; set; }
+
+        public string RequestStatus { get; set; }
+
+        public string TargetObjectType { get; set; }
+
+        public string Type { get; set; }
+
+        //public string RequestStatusDetail { get; set; }
+
+        //*********************************************************
+        // Target Settings:
+        //*********************************************************
+        public string Reason { get; set; }
+
+        public string Target { get; set; }
+
+        public string Target_AccountName { get; set; }
+
+        public string Target_ApprovalDuration { get; set; }
+
+        public string Target_ApprovalStatus { get; set; }
+
+        public string Target_Decision { get; set; }
+
+        public string Target_Department { get; set; }
+
+        public string Target_DepartmentNumber { get; set; }
+
+        public string Target_DisplayName { get; set; }
+
+        public string Target_EmployeeStatus { get; set; }
+
+        public string Target_EmployeeType { get; set; }
+
+        public string Target_HybridObjectID { get; set; }
+
+        public string Target_ObjectType { get; set; }
+
+        public string Target_Reason { get; set; }
+
+        //*********************************************************
         // MPR DisplayName
-        // *********************************************************
+        //*********************************************************
         //public string MPR_DisplayName { get; set; }
 
-        // *********************************************************
+        //*********************************************************
         // Approver 
-        // *********************************************************
+        //*********************************************************
         public string Approver { get; set; }
 
         public string Approver_AccountName { get; set; }
@@ -114,14 +114,14 @@ namespace MCS.EventLogMonitor
 
         public string Approver_HybridObjectID { get; set; }
 
-        // *********************************************************
+        //*********************************************************
         // Request Parameters
-        // *********************************************************
+        //*********************************************************
         public string RequestParameter { get; set; }
 
-        // *********************************************************
+        //*********************************************************
         // Raw Log - original JSON string - no parsing
-        // *********************************************************
+        //*********************************************************
         // public string RawLog { get; set; }
 
         public string FileName { get; set; }
@@ -152,7 +152,7 @@ namespace MCS.EventLogMonitor
 
                 //***************************************************************************************************
                 // Create concept of categorization into Audit, Approval, or System events for log analytic filtering
-                /* Approvals
+                /*  Approval
                     Approval
                     ApprovalResponse
                 */
@@ -483,9 +483,9 @@ namespace MCS.EventLogMonitor
                 }
 
                 
-                // **********************************************************************
+                //**********************************************************************
                 // Request Settings
-                // **********************************************************************
+                //**********************************************************************
                 this.ObjectType = JPathParse(o, "$.ObjectType", "");
 
                 this.RequestStatus = JPathParse(o, "$.RequestStatus", "");
@@ -495,25 +495,14 @@ namespace MCS.EventLogMonitor
                     this.MachineName = JPathParse(o, "$.MachineName", "");
                     //this.EventGeneratedTime = DateTime.Parse(JPathParse(o, "$.EventGeneratedTime", ""));
                 }
-                // Evaluate data to see if this should be included
-                // this.RequestStatusDetail = JPathParse(o, "$.RequestStatusDetail");
 
                 this.CreatedTime = DateTime.Parse(JPathParse(o, "$.CreatedTime", ""));
 
-                if ((this.RequestStatus != "Failed") && (this.RequestStatus != "Denied"))
-                {
-                    this.CommittedTime = DateTime.Parse(JPathParse(o, "$.CommittedTime", ""));
-                }
-                else
-                {
-                    this.CommittedTime = this.CreatedTime;
-                }
+                // Request DisplayName
+                this.DisplayName = JPathParse(o, "$.DisplayName", "");
 
                 // Request GUID
                 this.HybridObjectId = JPathParse(o, "$.HybridObjectID", "");
-
-                // Request DisplayName
-                this.DisplayName = JPathParse(o, "$.DisplayName", "");
 
                 this.Operation = JPathParse(o, "$.Operation", "");
 
@@ -531,17 +520,28 @@ namespace MCS.EventLogMonitor
                     this.TargetObjectType = JPathParse(o, "$.TargetObjectType", "");
                 }
 
-
                 this.ParentRequest = JPathParse(o, "$.ParentRequest", "");
 
-                // **********************************************************************
+
+                if ((this.RequestStatus != "Failed") && (this.RequestStatus != "Denied"))
+                {
+                    this.CommittedTime = DateTime.Parse(JPathParse(o, "$.CommittedTime", ""));
+                }
+                else
+                {
+                    this.CommittedTime = this.CreatedTime;
+                }
+
+                // Evaluate data to see if this should be included
+                // this.RequestStatusDetail = JPathParse(o, "$.RequestStatusDetail");
+
+                //**********************************************************************
                 //Target Settings
                 // Nested objects need detection and special handling for imports
                 // this.Target_AccountName = JPathParse(o, "$.Target_AccountName", "");
                 // "COMPUTERNAME$"
                 
-
-                // **********************************************************************
+                //**********************************************************************
                 this.Target_HybridObjectID = JPathParse(o, "$.Target.HybridObjectID", "");
 
                 if((this.Target_HybridObjectID=="") && (bFromFile == true))
@@ -556,9 +556,9 @@ namespace MCS.EventLogMonitor
                     this.Target_ObjectType = JPathParse(o, "$.Target_ObjectType", "");
                 }
 
-                // **********************************************************************
+                //**********************************************************************
                 // Operation = Delete - GUID of Object
-                // **********************************************************************
+                //**********************************************************************
                 if (this.Operation == "Delete")
                 {
                     this.Target = JPathParse(o, "$.Target", "");
@@ -573,11 +573,11 @@ namespace MCS.EventLogMonitor
                 
                 this.Target_DisplayName = JPathParse(o, "$.Target.DisplayName", "");
 
-                // **********************************************************************
+                //**********************************************************************
                 // Calculate the DisplayName from the request as it doesn't exist on the object...
                 // e.g. Request DisplayName =  "Delete Group:  'Test201 DisplayName' Request"
                 // && (this.Operation == "Delete")
-                // **********************************************************************
+                //**********************************************************************
                 if ((this.Target_AccountName == "") && (this.Target_DisplayName == ""))
                 {
                     if (this.DisplayName.IndexOf("'") != (this.DisplayName.LastIndexOf("'") - 1))
@@ -643,15 +643,15 @@ namespace MCS.EventLogMonitor
                     this.Target_ApprovalStatus = JPathParse(o, "$.Target_ApprovalStatus", "");
                 }
 
-                // **********************************************************************
+                //**********************************************************************
                 // Requester justification and Approver reason
-                // **********************************************************************
+                //**********************************************************************
                 this.Justification = JPathParse(o, "$.Justification", "");
                 this.Reason = JPathParse(o, "$.Reason", "");
 
-                // **********************************************************************
+                //**********************************************************************
                 // Creator Settings
-                // **********************************************************************
+                //**********************************************************************
                 this.Creator_HybridObjectID = JPathParse(o, "$.Creator.HybridObjectID", "");
 
                 if ((this.Creator_HybridObjectID == "") && (bFromFile == true))
@@ -676,14 +676,14 @@ namespace MCS.EventLogMonitor
                     this.Creator_DisplayName = JPathParse(o, "$.Creator_DisplayName", "");
                 }
 
-                // **********************************************************************
+                //**********************************************************************
                 // MPR Settings
-                // **********************************************************************
+                //**********************************************************************
                 // this.MPR_DisplayName = JPathParse(o, "$.ManagementPolicy.DisplayName","");
 
-                // **********************************************************************
+                //**********************************************************************
                 // Approver Parameters
-                // **********************************************************************
+                //**********************************************************************
                 this.Approver = JPathParse(o, "$.ComputedActor", "");
 
                 // Supports single level approvers - base call to computedactor would be expandable...
@@ -706,9 +706,9 @@ namespace MCS.EventLogMonitor
                 }
 
                 //Justification
-                // **********************************************************************
+                //**********************************************************************
                 // Request Parameters
-                // **********************************************************************
+                //**********************************************************************
                 this.RequestParameter = JPathParse(o, "$.RequestParameter", "");
 
                 // Rawlog 
@@ -741,9 +741,9 @@ namespace MCS.EventLogMonitor
             const string EventLogName = "MCS Azure Monitor Workspace Collector";
 
             
-            // *************************************************************************************
+            //*************************************************************************************
             // EventLog - name of this applications event log
-            // *************************************************************************************
+            //*************************************************************************************
             //if (!EventLog.Exists(EventLogName))
             //{
             //    EventLog.CreateEventSource(EventSource, EventLogName);
@@ -827,14 +827,14 @@ namespace MCS.EventLogMonitor
                                 else if (path.Contains("$.RequestParameter"))
                                 {
 
-                                    // ***********************************************************************************
+                                    //***********************************************************************************
                                     // ResultParameter Entries
-                                    // ***********************************************************************************
+                                    //***********************************************************************************
                                     ArrayList my_RPEs = new ArrayList();
 
-                                    // ***********************************************************************************
+                                    //***********************************************************************************
                                     // For Each Item in RequestParameters
-                                    // ***********************************************************************************
+                                    //***********************************************************************************
                                     foreach (JObject item in token.Children())
                                     {
                                         var itemProperties = item.Children<JProperty>();
@@ -842,9 +842,9 @@ namespace MCS.EventLogMonitor
                                         RequestParameterEntry rpe = new RequestParameterEntry();
                                         // USed ArrayList instead - RequestParameterEntryReference rpeReference = new RequestParameterEntryReference();
 
-                                        // ***********************************************************************************
+                                        //***********************************************************************************
                                         // Enumerate each RequestParameterEntry
-                                        // ***********************************************************************************
+                                        //***********************************************************************************
                                         foreach (var itemproperty in itemProperties)
                                         {
                                             var myElement = itemProperties.FirstOrDefault(x => x.Name == itemproperty.Name);

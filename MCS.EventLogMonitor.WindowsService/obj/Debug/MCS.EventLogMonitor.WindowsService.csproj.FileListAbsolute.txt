@@ -114,9 +114,10 @@ C:\Users\dahodge\Desktop\MIM_Auditor\MCS.EventLogMonitor.WindowsService\bin\Debu
 C:\Users\dahodge\Desktop\MIM_Auditor\MCS.EventLogMonitor.WindowsService\bin\Debug\MCS.EventLogMonitor.WindowsService.exe
 C:\Users\dahodge\Desktop\MIM_Auditor\MCS.EventLogMonitor.WindowsService\bin\Debug\MCS.EventLogMonitor.WindowsService.pdb
 C:\Users\dahodge\Desktop\MIM_Auditor\MCS.EventLogMonitor.WindowsService\bin\Debug\MCS.EventLogMonitor.dll
+C:\Users\dahodge\Desktop\MIM_Auditor\MCS.EventLogMonitor.WindowsService\bin\Debug\Encrypt_Class.dll
 C:\Users\dahodge\Desktop\MIM_Auditor\MCS.EventLogMonitor.WindowsService\bin\Debug\Newtonsoft.Json.dll
 C:\Users\dahodge\Desktop\MIM_Auditor\MCS.EventLogMonitor.WindowsService\bin\Debug\MCS.EventLogMonitor.pdb
-C:\Users\dahodge\Desktop\MIM_Auditor\MCS.EventLogMonitor.WindowsService\bin\Debug\Newtonsoft.Json.xml
+C:\Users\dahodge\Desktop\MIM_Auditor\MCS.EventLogMonitor.WindowsService\bin\Debug\Encrypt_Class.pdb
 C:\Users\dahodge\Desktop\MIM_Auditor\MCS.EventLogMonitor.WindowsService\obj\Debug\MCS.EventLogMonitor.WindowsService.csproj.AssemblyReference.cache
 C:\Users\dahodge\Desktop\MIM_Auditor\MCS.EventLogMonitor.WindowsService\obj\Debug\MCS.EventLogMonitor.WindowsService.ProjectInstaller.resources
 C:\Users\dahodge\Desktop\MIM_Auditor\MCS.EventLogMonitor.WindowsService\obj\Debug\MCS.EventLogMonitor.WindowsService.csproj.GenerateResource.cache

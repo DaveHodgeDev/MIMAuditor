@@ -20,7 +20,7 @@ namespace MCS.EventLogMonitor.WindowsService
 
         public static EventLogMonitorConfig Config { get; set; }
 
-        private EventLogWatcher watcher;
+        //private EventLogWatcher watcher;
 
         public EventLogAgentService()
         {
@@ -31,22 +31,22 @@ namespace MCS.EventLogMonitor.WindowsService
         protected override void OnStart(string[] args)
         {
             
-            // *************************************************************************************
+            //*************************************************************************************
             // EventLog - name of this applications event log
-            // *************************************************************************************
+            //*************************************************************************************
             if (!EventLog.Exists(Config.EventLogName))
             {
                 EventLog.CreateEventSource(Config.EventSource, Config.EventLogName);
             }
             
-            // *************************************************************************************
+            //*************************************************************************************
             // Initialize Event Dictionary
-            // *************************************************************************************
+            //*************************************************************************************
             partialEventDictionary = new Dictionary<Guid, string[]>();
 
-            // *************************************************************************************
+            //*************************************************************************************
             // Set Raising Events on Identity Manager Request Log
-            // *************************************************************************************
+            //*************************************************************************************
             //EventLog log = new EventLog();
             //log.Log = Config.logName;
             //log.EntryWritten += Log_EntryWritten;
@@ -57,17 +57,17 @@ namespace MCS.EventLogMonitor.WindowsService
             watcher.EventRecordWritten += Watcher_EventRecordWritten;
             watcher.Enabled = true;
 
-            // *************************************************************************************
+            //*************************************************************************************
             // Application started
-            // *************************************************************************************
+            //*************************************************************************************
             EventLog.WriteEntry(Config.EventSource, "Monitor Started", EventLogEntryType.Information, 100, 0);
         }
 
         protected override void OnStop()
         {
-            // *************************************************************************************
+            //*************************************************************************************
             // Application exit
-            // *************************************************************************************
+            //*************************************************************************************
             //watcher.Enabled = false;
             EventLog.WriteEntry(Config.EventSource, "Monitor Stopped", EventLogEntryType.Information, 101, 0);
         }

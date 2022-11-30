@@ -17,27 +17,25 @@ namespace EventLogExtractorConsole
         // Time the entry was generated in the Event Log, in local time, converted to UTC at later time
         public DateTime EventGeneratedTime { get; set; }
 
+        public long EventId { get; set; }
+
+        public string EntryType { get; set; }
+
         // Time the entry was written in the Event Log
         //public DateTime TimeWritten { get; set; }
 
         public string MachineName { get; set; }
 
-        public string EntryType { get; set; }
 
         public string Source { get; set; }
 
-        public long EventId { get; set; }
-
         public string User { get; set; }
 
-        // *********************************************************
+        //*********************************************************
         // Request
-        // *********************************************************
-        public string ObjectType { get; set; }
+        //*********************************************************
 
-        public string RequestStatus { get; set; }
 
-        public string Type { get; set; }
 
         //public string RequestStatusDetail { get; set; }
 
@@ -51,78 +49,84 @@ namespace EventLogExtractorConsole
 
         public string HybridObjectId { get; set; }
 
-        public string TargetObjectType { get; set; }
+        public string Justification { get; set; }
+
+        public string ObjectType { get; set; }
 
         public string Operation { get; set; }
 
         public string ParentRequest { get; set; }
 
-        public string Justification { get; set; }
+        public string RequestStatus { get; set; }
 
-        // *********************************************************
+        public string TargetObjectType { get; set; }
+
+        public string Type { get; set; }
+
+        //*********************************************************
         // Target Settings:
-        // *********************************************************
-        public string Target_HybridObjectID { get; set; }
-
-        public string Target_ObjectType { get; set; }
+        //*********************************************************
+        public string Reason { get; set; }
 
         public string Target { get; set; }
 
         public string Target_AccountName { get; set; }
 
-        public string Target_DisplayName { get; set; }
-
-        public string Target_Department { get; set; }
-
-        public string Target_DepartmentNumber { get; set; }
-
-        public string Target_EmployeeType { get; set; }
-
-        public string Target_EmployeeStatus { get; set; }
-
         public string Target_ApprovalDuration { get; set; }
-
-        public string Target_Decision { get; set; }
-
-        public string Target_Reason { get; set; }
 
         public string Target_ApprovalStatus { get; set; }
 
-        public string Reason { get; set; }
+        public string Target_Department { get; set; }
 
-        // *********************************************************
+        public string Target_Decision { get; set; }
+
+        public string Target_DepartmentNumber { get; set; }
+
+        public string Target_DisplayName { get; set; }
+
+        public string Target_EmployeeStatus { get; set; }
+
+        public string Target_EmployeeType { get; set; }
+
+        public string Target_HybridObjectID { get; set; }
+
+        public string Target_ObjectType { get; set; }
+
+        public string Target_Reason { get; set; }
+
+        //*********************************************************
         // Creator Settings:
-        // *********************************************************
+        //*********************************************************
         public string Creator_AccountName { get; set; }
 
         public string Creator_DisplayName { get; set; }
 
         public string Creator_HybridObjectID { get; set; }
 
-        // *********************************************************
+        //*********************************************************
         // MPR DisplayName
-        // *********************************************************
+        //*********************************************************
         //public string MPR_DisplayName { get; set; }
 
-        // *********************************************************
+        //*********************************************************
         // Approver 
-        // *********************************************************
+        //*********************************************************
         public string Approver { get; set; }
-
-        public string Approver_HybridObjectID { get; set; }
 
         public string Approver_AccountName { get; set; }
 
         public string Approver_DisplayName { get; set; }
 
-        // *********************************************************
+        public string Approver_HybridObjectID { get; set; }
+
+        //*********************************************************
         // Request Parameters
-        // *********************************************************
+        //*********************************************************
         public string RequestParameter { get; set; }
 
-        // *********************************************************
+        //*********************************************************
         // Raw Log
-        // *********************************************************
+        //*********************************************************
         public string RawLog { get; set; }
 
         #endregion
@@ -522,29 +526,25 @@ namespace EventLogExtractorConsole
                         }
                 }
 
-                // **********************************************************************
+                //**********************************************************************
                 // Request Settings
-                // **********************************************************************
-                this.ObjectType = JPathParse(o, "$.ObjectType", "");
-
-                this.RequestStatus = JPathParse(o, "$.RequestStatus", "");
-
-                // Evaluate data to see if this should be included
-                // this.RequestStatusDetail = JPathParse(o, "$.RequestStatusDetail");
-
-                this.CreatedTime = DateTime.Parse(JPathParse(o, "$.CreatedTime", ""));
+                //**********************************************************************
                 this.CommittedTime = DateTime.Parse(JPathParse(o, "$.CommittedTime", ""));
 
-                // Request GUID
-                this.HybridObjectId = JPathParse(o, "$.HybridObjectID", "");
+                this.CreatedTime = DateTime.Parse(JPathParse(o, "$.CreatedTime", ""));
 
                 // Request DisplayName
                 this.DisplayName = JPathParse(o, "$.DisplayName", "");
 
+                // Request GUID
+                this.HybridObjectId = JPathParse(o, "$.HybridObjectID", "");
+
+                this.ObjectType = JPathParse(o, "$.ObjectType", "");
+
                 // TargetObjectType is blank on a delete - parse object type from DisplayName
                 if (this.Operation == "Delete")
                 {
-                    // this.DisplayName = "Delete Group:  'Test201 DisplayName' Request"
+                    // this.DisplayName = "Delete Group:  'Test DisplayName' Request"
                     string DisplayName = this.DisplayName;
                     string[] arrDisplayName = DisplayName.Split(' ');
                     string targetObjectType = arrDisplayName[1].Replace(':'.ToString(), "");
@@ -559,10 +559,48 @@ namespace EventLogExtractorConsole
 
                 this.ParentRequest = JPathParse(o, "$.ParentRequest", "");
 
-                // **********************************************************************
+                this.RequestStatus = JPathParse(o, "$.RequestStatus", "");
+
+                // Evaluate data to see if this should be included
+                // this.RequestStatusDetail = JPathParse(o, "$.RequestStatusDetail");
+
+
+                //**********************************************************************
                 //Target Settings
-                // **********************************************************************
+                //**********************************************************************
+                this.Target_AccountName = JPathParse(o, "$.Target.AccountName", "");
+
+                this.Target_ApprovalDuration = JPathParse(o, "$.Target.ApprovalDuration", "");
+
+                this.Target_ApprovalStatus = JPathParse(o, "$.Target.ApprovalStatus", "");
+
+                //**********************************************************************
+                // Creator Settings
+                //**********************************************************************
+                this.Creator_HybridObjectID = JPathParse(o, "$.Creator.HybridObjectID", "");
+
+                // Use Creator DisplayName if no accountName set, typically accountname should be present
+                string accountName = JPathParse(o, "$.Creator.AccountName", "");
+
+                if (string.IsNullOrEmpty(accountName)) this.Creator_AccountName = JPathParse(o, "$.Creator.DisplayName", "");
+                else this.Creator_AccountName = accountName;
+
+                this.Creator_DisplayName = JPathParse(o, "$.Creator.DisplayName", "");
+
+                this.Target_Decision = JPathParse(o, "$.Target.Decision", "");
+
+                this.Target_Department = JPathParse(o, "$.Target.Department", "");
+
+                this.Target_DepartmentNumber = JPathParse(o, "$.Target.mcsDepartmentNumber", "");
+
+                this.Target_DisplayName = JPathParse(o, "$.Target.DisplayName", "");
+
+                this.Target_EmployeeType = JPathParse(o, "$.Target.EmployeeType", "");
+
+                this.Target_EmployeeStatus = JPathParse(o, "$.Target.mcsEmployeeStatus", "");
+
                 this.Target_HybridObjectID = JPathParse(o, "$.Target.HybridObjectID", "");
+
                 this.Target_ObjectType = JPathParse(o, "$.Target.ObjectType", "");
 
                 // Operation = Delete - GUID of Object
@@ -571,8 +609,6 @@ namespace EventLogExtractorConsole
                     this.Target = JPathParse(o, "$.Target", "");
                 }
                 //---------------------------------------------------------------------
-                this.Target_AccountName = JPathParse(o, "$.Target.AccountName", "");
-                this.Target_DisplayName = JPathParse(o, "$.Target.DisplayName", "");
 
                 if ((this.Target_AccountName == "") && (this.Target_DisplayName == "") && (this.Operation == "Delete"))
                 {
@@ -580,53 +616,36 @@ namespace EventLogExtractorConsole
                     this.Target_DisplayName = this.DisplayName.Substring(this.DisplayName.IndexOf("'") + 1, this.DisplayName.LastIndexOf("'") - this.DisplayName.IndexOf("'") - 1);
                 }
 
-                this.Target_Department = JPathParse(o, "$.Target.Department", "");
-                this.Target_DepartmentNumber = JPathParse(o, "$.Target.mcsDepartmentNumber", "");
-                this.Target_EmployeeType = JPathParse(o, "$.Target.EmployeeType", "");
-                this.Target_EmployeeStatus = JPathParse(o, "$.Target.mcsEmployeeStatus", "");
-
-                this.Target_ApprovalDuration = JPathParse(o, "$.Target.ApprovalDuration", "");
-                this.Target_Decision = JPathParse(o, "$.Target.Decision", "");
                 this.Target_Reason = JPathParse(o, "$.Target.Reason", "");
-                this.Target_ApprovalStatus = JPathParse(o, "$.Target.ApprovalStatus", "");
 
-                // **********************************************************************
+                //**********************************************************************
                 // Requester justification and Approver reason
-                // **********************************************************************
+                //**********************************************************************
                 this.Justification = JPathParse(o, "$.Justification", "");
                 this.Reason = JPathParse(o, "$.Reason", "");
 
-                // **********************************************************************
-                // Creator Settings
-                // **********************************************************************
-                this.Creator_HybridObjectID = JPathParse(o, "$.Creator.HybridObjectID", "");
 
-                // Use Creator DisplayName if no accountName set, typically accountname should be present
-                string accountName = JPathParse(o, "$.Creator.AccountName", "");
-                if (string.IsNullOrEmpty(accountName)) this.Creator_AccountName = JPathParse(o, "$.Creator.DisplayName", "");
-                else this.Creator_AccountName = accountName;
-
-                this.Creator_DisplayName = JPathParse(o, "$.Creator.DisplayName", "");
-
-                // **********************************************************************
+                //**********************************************************************
                 // MPR Settings
-                // **********************************************************************
+                //**********************************************************************
                 // this.MPR_DisplayName = JPathParse(o, "$.ManagementPolicy.DisplayName","");
 
-                // **********************************************************************
+                //**********************************************************************
                 // Approver Parameters
-                // **********************************************************************
+                //**********************************************************************
                 this.Approver = JPathParse(o, "$.ComputedActor", "");
+
+                this.Approver_AccountName = JPathParse(o, "$.ComputedActor", "AccountName");
+
+                this.Approver_DisplayName = JPathParse(o, "$.ComputedActor", "DisplayName");
 
                 // Supports single level approvers - base call to computedactor would be expandable...
                 this.Approver_HybridObjectID = JPathParse(o, "$.ComputedActor", "HybridObjectID");
-                this.Approver_AccountName = JPathParse(o, "$.ComputedActor", "AccountName");
-                this.Approver_DisplayName = JPathParse(o, "$.ComputedActor", "DisplayName");
 
                 //Justification
-                // **********************************************************************
+                //**********************************************************************
                 // Request Parameters
-                // **********************************************************************
+                //**********************************************************************
                 this.RequestParameter = JPathParse(o, "$.RequestParameter", "");
 
                 // Rawlog 
@@ -709,14 +728,14 @@ namespace EventLogExtractorConsole
                                 else if (path.Contains("$.RequestParameter"))
                                 {
 
-                                    // ***********************************************************************************
+                                    //***********************************************************************************
                                     // ResultParameter Entries
-                                    // ***********************************************************************************
+                                    //***********************************************************************************
                                     ArrayList my_RPEs = new ArrayList();
 
-                                    // ***********************************************************************************
+                                    //***********************************************************************************
                                     // For Each Item in RequestParameters
-                                    // ***********************************************************************************
+                                    //***********************************************************************************
                                     foreach (JObject item in token.Children())
                                     {
                                         var itemProperties = item.Children<JProperty>();
@@ -724,9 +743,9 @@ namespace EventLogExtractorConsole
                                         RequestParameterEntry rpe = new RequestParameterEntry();
                                         //                                RequestParameterEntryReference rpeReference = new RequestParameterEntryReference();
 
-                                        // ***********************************************************************************
+                                        //***********************************************************************************
                                         // Enumerate each RequestParameterEntry
-                                        // ***********************************************************************************
+                                        //***********************************************************************************
                                         foreach (var itemproperty in itemProperties)
                                         {
                                             var myElement = itemProperties.FirstOrDefault(x => x.Name == itemproperty.Name);
