@@ -4,7 +4,6 @@ using System.Configuration;
 using System.Text;
 using Encrypt_Class;
 
-
 namespace MCS.EventLogMonitor
 {
     public class EventLogMonitorConfig
@@ -83,9 +82,9 @@ namespace MCS.EventLogMonitor
             // Decryption 
             string sDecryptedSecret = string.Empty;
 
-            var workspaceId = ConfigurationManager.AppSettings["workspaceId"];
-            var workspaceKey = ConfigurationManager.AppSettings["workspaceKey"];
-            var workspaceLogName = ConfigurationManager.AppSettings["workspaceLogName"];
+            string workspaceId = ConfigurationManager.AppSettings["workspaceId"];
+            string workspaceKey = ConfigurationManager.AppSettings["workspaceKey"];
+            string workspaceLogName = ConfigurationManager.AppSettings["workspaceLogName"];
 
             workspaceKey = myEncrypt.decryptRsa(workspaceKey);
 

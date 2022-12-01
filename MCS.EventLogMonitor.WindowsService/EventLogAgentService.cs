@@ -1,6 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
-using System.ComponentModel;
+//using System.ComponentModel;
 using System.Diagnostics;
 using System.Linq;
 using System.ServiceProcess;
@@ -8,9 +8,7 @@ using System.Text;
 using System.Text.RegularExpressions;
 //using System.Threading.Tasks;
 using System.Diagnostics.Eventing.Reader;
-using MCS.EventLogMonitor;
-
-
+//using MCS.EventLogMonitor;
 
 namespace MCS.EventLogMonitor.WindowsService
 {
@@ -20,8 +18,6 @@ namespace MCS.EventLogMonitor.WindowsService
 
         public static EventLogMonitorConfig Config { get; set; }
 
-        //private EventLogWatcher watcher;
-
         public EventLogAgentService()
         {
             InitializeComponent();
@@ -30,7 +26,6 @@ namespace MCS.EventLogMonitor.WindowsService
 
         protected override void OnStart(string[] args)
         {
-            
             //*************************************************************************************
             // EventLog - name of this applications event log
             //*************************************************************************************
@@ -79,7 +74,6 @@ namespace MCS.EventLogMonitor.WindowsService
 
             EventRecord entry = e.EventRecord;
 
-
             string message = entry.FormatDescription();
 
             //#region construct log base structure
@@ -93,8 +87,7 @@ namespace MCS.EventLogMonitor.WindowsService
                 EventId = entry.Id,
                 // User = entry.UserName
             };
-
-            
+                        
             //#endregion
 
             try

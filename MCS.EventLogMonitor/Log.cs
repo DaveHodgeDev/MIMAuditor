@@ -126,6 +126,8 @@ namespace MCS.EventLogMonitor
 
         public string FileName { get; set; }
 
+        //Ignored when being serialized
+        [JsonIgnore]
         public LogAnalyticsWorkspaceHelper API { get; set; }
 
         #endregion
@@ -140,9 +142,8 @@ namespace MCS.EventLogMonitor
         /// Enrich the log with json input
         /// </summary>
         /// <param name="json"></param>
-        public void Augment(string json, bool bFromFile=false)
+        public void Augment(string json, bool bFromFile = false)
         {
-            StringBuilder sb = new StringBuilder();
             try
             {
                 //***************************************************************************************************
@@ -482,7 +483,8 @@ namespace MCS.EventLogMonitor
                         }
                 }
 
-                
+
+
                 //**********************************************************************
                 // Request Settings
                 //**********************************************************************
@@ -540,15 +542,15 @@ namespace MCS.EventLogMonitor
                 // Nested objects need detection and special handling for imports
                 // this.Target_AccountName = JPathParse(o, "$.Target_AccountName", "");
                 // "COMPUTERNAME$"
-                
+
                 //**********************************************************************
                 this.Target_HybridObjectID = JPathParse(o, "$.Target.HybridObjectID", "");
 
-                if((this.Target_HybridObjectID=="") && (bFromFile == true))
+                if ((this.Target_HybridObjectID == "") && (bFromFile == true))
                 {
                     this.Target_HybridObjectID = JPathParse(o, "$.Target_HybridObjectID", "");
                 }
-                
+
                 this.Target_ObjectType = JPathParse(o, "$.Target.ObjectType", "");
 
                 if ((this.Target_ObjectType == "") && (bFromFile == true))
@@ -570,7 +572,7 @@ namespace MCS.EventLogMonitor
                 {
                     this.Target_AccountName = JPathParse(o, "$.Target_AccountName", "");
                 }
-                
+
                 this.Target_DisplayName = JPathParse(o, "$.Target.DisplayName", "");
 
                 //**********************************************************************
@@ -737,29 +739,21 @@ namespace MCS.EventLogMonitor
         /// </summary>
         public void WriteLog()
         {
-            //const string EventSource = "MCS.LogAnalytics.Collector";//MCS.HybridReportLogger
             const string EventLogName = "MCS Azure Monitor Workspace Collector";
 
-            
-            //*************************************************************************************
-            // EventLog - name of this applications event log
-            //*************************************************************************************
-            //if (!EventLog.Exists(EventLogName))
-            //{
-            //    EventLog.CreateEventSource(EventSource, EventLogName);
-            //}
-                        
+            this.EventGeneratedTime = this.CreatedTime;
+
             string output = this.SerializeToString();
 
             if (!string.IsNullOrEmpty(FileName))
             {
-                //Console.WriteLine(output);
                 using (StreamWriter w = File.AppendText(FileName))
                 {
                     w.WriteLine(output);
                     w.WriteLine("-------------------------------");
                 }
             }
+
             if (API != null)
             {
                 // Write to the event log for Failed/Denied requests from Synchronization Account
@@ -776,16 +770,7 @@ namespace MCS.EventLogMonitor
                     }
                 }
 
-                if (this.EventGeneratedTime.ToString() == "1/1/0001 12:00:00 AM")
-                {
-                    // Cannot be committed time as that doesn't always exist
-                    this.EventGeneratedTime = this.CreatedTime;
-                    API.PostData(this.EventGeneratedTime.ToString(), output);
-                }
-                else
-                {
-                    API.PostData(this.EventGeneratedTime.ToString(), output);
-                }
+                API.PostData(this.EventGeneratedTime.ToString(), output);
             }
         }
 
@@ -840,7 +825,6 @@ namespace MCS.EventLogMonitor
                                         var itemProperties = item.Children<JProperty>();
 
                                         RequestParameterEntry rpe = new RequestParameterEntry();
-                                        // USed ArrayList instead - RequestParameterEntryReference rpeReference = new RequestParameterEntryReference();
 
                                         //***********************************************************************************
                                         // Enumerate each RequestParameterEntry
@@ -954,9 +938,9 @@ namespace MCS.EventLogMonitor
                             } // END Case "ARRAY" 
 
                         default:
-                        {
-                            return token.Value<string>();
-                        }
+                            {
+                                return token.Value<string>();
+                            }
                     }
                 }
                 else

@@ -17,3 +17,13 @@ C:\Users\dahodge\Desktop\MIM_Auditor\EventLogExtractorConsole\obj\Debug\EventLog
 C:\Users\dahodge\Desktop\MIM_Auditor\EventLogExtractorConsole\obj\Debug\EventLogExtractorConsole.csproj.CopyComplete
 C:\Users\dahodge\Desktop\MIM_Auditor\EventLogExtractorConsole\obj\Debug\EventLogExtractorConsole.exe
 C:\Users\dahodge\Desktop\MIM_Auditor\EventLogExtractorConsole\obj\Debug\EventLogExtractorConsole.pdb
+C:\Users\dhodge-admin\Source\Repos\DaveHodgeDev\MIMAuditor\EventLogExtractorConsole\bin\Debug\EventLogExtractorConsole.exe.config
+C:\Users\dhodge-admin\Source\Repos\DaveHodgeDev\MIMAuditor\EventLogExtractorConsole\bin\Debug\EventLogExtractorConsole.exe
+C:\Users\dhodge-admin\Source\Repos\DaveHodgeDev\MIMAuditor\EventLogExtractorConsole\bin\Debug\EventLogExtractorConsole.pdb
+C:\Users\dhodge-admin\Source\Repos\DaveHodgeDev\MIMAuditor\EventLogExtractorConsole\bin\Debug\Newtonsoft.Json.dll
+C:\Users\dhodge-admin\Source\Repos\DaveHodgeDev\MIMAuditor\EventLogExtractorConsole\bin\Debug\Newtonsoft.Json.xml
+C:\Users\dhodge-admin\Source\Repos\DaveHodgeDev\MIMAuditor\EventLogExtractorConsole\obj\Debug\EventLogExtractorConsole.csprojAssemblyReference.cache
+C:\Users\dhodge-admin\Source\Repos\DaveHodgeDev\MIMAuditor\EventLogExtractorConsole\obj\Debug\EventLogExtractorConsole.csproj.CoreCompileInputs.cache
+C:\Users\dhodge-admin\Source\Repos\DaveHodgeDev\MIMAuditor\EventLogExtractorConsole\obj\Debug\EventLogExtractorConsole.csproj.CopyComplete
+C:\Users\dhodge-admin\Source\Repos\DaveHodgeDev\MIMAuditor\EventLogExtractorConsole\obj\Debug\EventLogExtractorConsole.exe
+C:\Users\dhodge-admin\Source\Repos\DaveHodgeDev\MIMAuditor\EventLogExtractorConsole\obj\Debug\EventLogExtractorConsole.pdb

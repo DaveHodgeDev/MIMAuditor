@@ -60,10 +60,13 @@
     <Content Include="ReadMe.txt" />
   </ItemGroup>
   <ItemGroup>
+    <ProjectReference Include="..\Encrypt_Class\Encrypt_Class.csproj">
+      <Project>{36e3b27f-3fb1-4fd6-a1e4-5fc0ab955ff8}</Project>
+      <Name>Encrypt_Class</Name>
+    </ProjectReference>
     <ProjectReference Include="..\MCS.EventLogMonitor\MCS.EventLogMonitor.csproj">
       <Project>{f028444c-2e08-43d0-bf55-762960a5f103}</Project>
       <Name>MCS.EventLogMonitor</Name>
-      <Private>False</Private>
     </ProjectReference>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
