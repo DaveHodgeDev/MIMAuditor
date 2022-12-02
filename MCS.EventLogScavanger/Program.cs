@@ -1,50 +1,36 @@
 ﻿using System;
-using System.Collections.Generic;
 using System.Configuration;
 using System.Diagnostics;
 using System.Linq;
-using System.Text;
-using System.Text.RegularExpressions;
-using System.Threading.Tasks;
 using MCS.EventLogMonitor;
 using System.IO;
+using Encrypt_Class;
 
 namespace MCS.EventLogScavanger
 {
     class Program
     {
-        public EventLogMonitorConfig Config { get; set; }
-
-        // Auditing tool's LogFile
-        public static string LogFileName { get; set; }
-
-        // Path to not uploaded JSON Files
-        public static string jsonFileDirectory { get; set; }
-
-        public static LogAnalyticsWorkspaceHelper API { get; set; }
-
         static void Main(string[] args)
         {
-            EventLogMonitorConfig Config;
-            Config = new EventLogMonitorConfig();
+            ScavengerConfig Config = new ScavengerConfig();
 
-            // *************************************************************************************
+            //*************************************************************************************
             // EventLog - name of this applications event log
-            // *************************************************************************************
+            //*************************************************************************************
             if (!EventLog.Exists(Config.EventLogName))
             {
                 EventLog.CreateEventSource(Config.EventSource, Config.EventLogName);
             }
 
-            // *************************************************************************************
+            //*************************************************************************************
             // Application started
-            // *************************************************************************************
+            //*************************************************************************************
             EventLog.WriteEntry(Config.EventSource, "Scavenger Started", EventLogEntryType.Information, 2000, 0);
 
-            // *************************************************************************************
+            //*************************************************************************************
             // Enumerate JSON files in the folder. After processing successfully, delete the file
-            // *************************************************************************************
-            Log logger = new Log(Config.LogFileName, Config.API)
+            //*************************************************************************************
+            Log log = new Log(Config.LogFileName, Config.API)
             {
                 //TimeWritten = entry.TimeWritten,
                 MachineName = Environment.MachineName,
@@ -56,7 +42,7 @@ namespace MCS.EventLogScavanger
 
             try
             {
-                // Set a variable to the pending JSON uploads.
+                // Gather the JSON files to upload from the JSON file directory.
                 DirectoryInfo DirInfo = new DirectoryInfo(Config.jsonFileDirectory);
 
                 int i = 0;
@@ -72,9 +58,10 @@ namespace MCS.EventLogScavanger
                         Console.WriteLine("##############################################");
 
                         string strJSON = File.ReadAllText(fi.FullName);
-                        logger.Augment(strJSON, true);
-                        logger.EventGeneratedTime = logger.EventGeneratedTime;
-                        logger.WriteLog();
+
+                        log.Augment(strJSON, false);
+
+                        log.WriteLog();
 
                         fi.Delete();
                     }
@@ -93,41 +80,100 @@ namespace MCS.EventLogScavanger
                 Console.WriteLine(pathEx.Message);
             }
 
-            // *************************************************************************************
+            //*************************************************************************************
             // Application exit
-            // *************************************************************************************
+            //*************************************************************************************
             EventLog.WriteEntry(Config.EventSource, "Scavenger Stopped", EventLogEntryType.Information, 2001, 0);
         }
+    }
 
-        static void Main_Test(string[] args)
+    public class ScavengerConfig
+    {
+        public LogAnalyticsWorkspaceHelper API { get; set; }
+
+        public string certificate { get; set; }
+
+        public static bool DebugMode { get; set; }
+
+        public string EventLogName = "MCS Azure Monitor Workspace Collector";
+
+        public string EventSource = "MCS.LogAnalytics.Scavenger";
+
+        // Path to place JSON Files due to a parsing/upload issue
+        public string jsonFileDirectory { get; set; }
+
+        /// <summary>
+        /// MIM Auditor's LogFile
+        /// </summary>
+        public string LogFileName { get; set; }
+
+        public string logName { get; set; }
+
+        public ScavengerConfig()
         {
-            EventLogMonitorConfig Config;
-            Config = new EventLogMonitorConfig();
+            #region read settings
 
-            // *************************************************************************************
-            // EventLog - name of this applications event log
-            // *************************************************************************************
-            if (!EventLog.Exists(Config.EventLogName))
+            var debug = ConfigurationManager.AppSettings["debug"];
+
+            if (!string.IsNullOrEmpty(debug) && (debug.ToLower() == "true" || debug.ToLower() == "yes" || debug.ToLower() == "y"))
             {
-                EventLog.CreateEventSource(Config.EventSource, Config.EventLogName);
+                DebugMode = true;
+            }
+            else
+            {
+                DebugMode = false;
             }
 
-            string strJSON = File.ReadAllText(@"C:\Users\<userID>\Source\Workspaces\Azure\HybridReporting\EventLogExtractorConsole\MCS.EventLogScavanger\test.json");
-            Log logger = new Log(Config.LogFileName, Config.API)
+            certificate = ConfigurationManager.AppSettings["certificate"];
+
+            if (string.IsNullOrEmpty(certificate))
             {
-                //TimeWritten = entry.TimeWritten,
-                MachineName = Environment.MachineName,
-                EntryType = "Information",
-                Source = Config.EventLogName,
-                EventId = 4121,
-                User = ""
-            };
+                //throw("No certificate defined");
+            }
 
-            logger.Augment(strJSON);
+            LogFileName = ConfigurationManager.AppSettings["logFile"];
 
-            logger.EventGeneratedTime = logger.EventGeneratedTime;
+            if (string.IsNullOrEmpty(LogFileName))
+            {
+                //Console.WriteLine("No LogFile defined");
+            }
 
-            logger.WriteLog();
+            logName = ConfigurationManager.AppSettings["logName"];
+
+            if (string.IsNullOrEmpty(logName))
+            {
+                throw new Exception("logName not set in app.config");
+            }
+
+            jsonFileDirectory = ConfigurationManager.AppSettings["jsonFileDirectory"];
+
+            if (string.IsNullOrEmpty(jsonFileDirectory))
+            {
+                //Console.WriteLine("No jsonFileDirectory defined");
+            }
+
+            // Calling the decryption code...
+            Encrypt myEncrypt = new Encrypt();
+
+            // Get the certificate 
+            myEncrypt.certificateName = certificate;
+
+            myEncrypt.getCertificate(myEncrypt.certificateName);
+
+            // Decryption 
+            string sDecryptedSecret = string.Empty;
+
+            string workspaceId = ConfigurationManager.AppSettings["workspaceId"];
+            string workspaceKey = ConfigurationManager.AppSettings["workspaceKey"];
+            string workspaceLogName = ConfigurationManager.AppSettings["workspaceLogName"];
+
+            workspaceKey = myEncrypt.decryptRsa(workspaceKey);
+
+            if (!string.IsNullOrEmpty(workspaceId) && !string.IsNullOrEmpty(workspaceKey) && !string.IsNullOrEmpty(workspaceLogName))
+            {
+                API = new LogAnalyticsWorkspaceHelper(workspaceId, workspaceKey, workspaceLogName);
+            }
+            #endregion
         }
     }
 }

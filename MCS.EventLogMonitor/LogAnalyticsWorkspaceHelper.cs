@@ -14,17 +14,17 @@ namespace MCS.EventLogMonitor
         /// <summary>
         /// Log Analytics workspace ID
         /// </summary>
-        private string WorkspaceId { get; }
+        public string WorkspaceId { get; }
 
         /// <summary>
         /// Log Analytics Workspace Key
         /// </summary>
-        private string WorkspaceKey { get; }
+        public string WorkspaceKey { get; }
 
         /// <summary>
         /// 
         /// </summary>
-        private string LogName { get; }
+        public string LogName { get; }
 
         public LogAnalyticsWorkspaceHelper(string workspaceId, string workspaceKey, string logName)
         {
@@ -72,6 +72,7 @@ namespace MCS.EventLogMonitor
                 client.DefaultRequestHeaders.Add("x-ms-date", datestring);
                 client.DefaultRequestHeaders.Add("time-generated-field", timeStampField);
 
+                
                 System.Net.Http.HttpContent httpContent = new StringContent(json, Encoding.UTF8);
                 httpContent.Headers.ContentType = new MediaTypeHeaderValue("application/json");
                 Task<System.Net.Http.HttpResponseMessage> response = client.PostAsync(new Uri(url), httpContent);

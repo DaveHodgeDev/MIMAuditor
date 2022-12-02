@@ -2,20 +2,21 @@
 using System.Collections.Generic;
 using System.Configuration;
 using System.Text;
+using Encrypt_Class;
 
 namespace MCS.EventLogMonitor
 {
     public class EventLogMonitorConfig
     {
         public LogAnalyticsWorkspaceHelper API { get; set; }
-
-        public string EventSource = "MCS.LogAnalytics.Collector";
-
-        public string EventLogName = "MCS Azure Monitor Workspace Collector";
+        
+        public string certificate { get; set; }
 
         public static bool DebugMode { get; set; }
 
-        //private static Dictionary<Guid, string[]> partialEventDictionary;    //stores all partial requests organized by GUID
+        public string EventLogName = "MCS Azure Monitor Workspace Collector";
+
+        public string EventSource = "MCS.LogAnalytics.Collector";
 
         // Path to place JSON Files due to a parsing/upload issue
         public string jsonFileDirectory { get; set; }
@@ -42,20 +43,18 @@ namespace MCS.EventLogMonitor
                 DebugMode = false;
             }
 
-            //Console.WriteLine("DebugMode={0}", DebugMode);
+            certificate = ConfigurationManager.AppSettings["certificate"];
+
+            if (string.IsNullOrEmpty(certificate))
+            {
+                //throw("No certificate defined");
+            }
 
             LogFileName = ConfigurationManager.AppSettings["logFile"];
 
             if (string.IsNullOrEmpty(LogFileName))
             {
                 //Console.WriteLine("No LogFile defined");
-            }
-
-            jsonFileDirectory = ConfigurationManager.AppSettings["jsonFileDirectory"];
-
-            if (string.IsNullOrEmpty(jsonFileDirectory))
-            {
-                //Console.WriteLine("No jsonFileDirectory defined");
             }
 
             logName = ConfigurationManager.AppSettings["logName"];
@@ -65,9 +64,29 @@ namespace MCS.EventLogMonitor
                 throw new Exception("logName not set in app.config");
             }
 
-            var workspaceId = ConfigurationManager.AppSettings["workspaceId"];
-            var workspaceKey = ConfigurationManager.AppSettings["workspaceKey"];
-            var workspaceLogName = ConfigurationManager.AppSettings["workspaceLogName"];
+            jsonFileDirectory = ConfigurationManager.AppSettings["jsonFileDirectory"];
+
+            if (string.IsNullOrEmpty(jsonFileDirectory))
+            {
+                //Console.WriteLine("No jsonFileDirectory defined");
+            }
+
+            // Calling the decryption code...
+            Encrypt myEncrypt = new Encrypt();
+
+            // Get the certificate 
+            myEncrypt.certificateName = certificate;
+
+            myEncrypt.getCertificate(myEncrypt.certificateName);
+            
+            // Decryption 
+            string sDecryptedSecret = string.Empty;
+
+            string workspaceId = ConfigurationManager.AppSettings["workspaceId"];
+            string workspaceKey = ConfigurationManager.AppSettings["workspaceKey"];
+            string workspaceLogName = ConfigurationManager.AppSettings["workspaceLogName"];
+
+            workspaceKey = myEncrypt.decryptRsa(workspaceKey);
 
             if (!string.IsNullOrEmpty(workspaceId) && !string.IsNullOrEmpty(workspaceKey) && !string.IsNullOrEmpty(workspaceLogName))
             {

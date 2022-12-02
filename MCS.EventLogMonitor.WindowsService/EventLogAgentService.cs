@@ -1,6 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
-using System.ComponentModel;
+//using System.ComponentModel;
 using System.Diagnostics;
 using System.Linq;
 using System.ServiceProcess;
@@ -8,9 +8,7 @@ using System.Text;
 using System.Text.RegularExpressions;
 //using System.Threading.Tasks;
 using System.Diagnostics.Eventing.Reader;
-using MCS.EventLogMonitor;
-
-
+//using MCS.EventLogMonitor;
 
 namespace MCS.EventLogMonitor.WindowsService
 {
@@ -20,8 +18,6 @@ namespace MCS.EventLogMonitor.WindowsService
 
         public static EventLogMonitorConfig Config { get; set; }
 
-        private EventLogWatcher watcher;
-
         public EventLogAgentService()
         {
             InitializeComponent();
@@ -30,23 +26,22 @@ namespace MCS.EventLogMonitor.WindowsService
 
         protected override void OnStart(string[] args)
         {
-            
-            // *************************************************************************************
+            //*************************************************************************************
             // EventLog - name of this applications event log
-            // *************************************************************************************
+            //*************************************************************************************
             if (!EventLog.Exists(Config.EventLogName))
             {
                 EventLog.CreateEventSource(Config.EventSource, Config.EventLogName);
             }
             
-            // *************************************************************************************
+            //*************************************************************************************
             // Initialize Event Dictionary
-            // *************************************************************************************
+            //*************************************************************************************
             partialEventDictionary = new Dictionary<Guid, string[]>();
 
-            // *************************************************************************************
+            //*************************************************************************************
             // Set Raising Events on Identity Manager Request Log
-            // *************************************************************************************
+            //*************************************************************************************
             //EventLog log = new EventLog();
             //log.Log = Config.logName;
             //log.EntryWritten += Log_EntryWritten;
@@ -57,17 +52,17 @@ namespace MCS.EventLogMonitor.WindowsService
             watcher.EventRecordWritten += Watcher_EventRecordWritten;
             watcher.Enabled = true;
 
-            // *************************************************************************************
+            //*************************************************************************************
             // Application started
-            // *************************************************************************************
+            //*************************************************************************************
             EventLog.WriteEntry(Config.EventSource, "Monitor Started", EventLogEntryType.Information, 100, 0);
         }
 
         protected override void OnStop()
         {
-            // *************************************************************************************
+            //*************************************************************************************
             // Application exit
-            // *************************************************************************************
+            //*************************************************************************************
             //watcher.Enabled = false;
             EventLog.WriteEntry(Config.EventSource, "Monitor Stopped", EventLogEntryType.Information, 101, 0);
         }
@@ -78,7 +73,6 @@ namespace MCS.EventLogMonitor.WindowsService
             Guid requestGuid = new Guid("00000000-0000-0000-0000-000000000000");
 
             EventRecord entry = e.EventRecord;
-
 
             string message = entry.FormatDescription();
 
@@ -93,8 +87,7 @@ namespace MCS.EventLogMonitor.WindowsService
                 EventId = entry.Id,
                 // User = entry.UserName
             };
-
-            
+                        
             //#endregion
 
             try

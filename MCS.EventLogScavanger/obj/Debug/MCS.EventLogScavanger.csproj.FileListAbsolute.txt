@@ -116,3 +116,16 @@ C:\Users\dahodge\Desktop\MIM_Auditor\MCS.EventLogScavanger\obj\Debug\MCS.EventLo
 C:\Users\dahodge\Desktop\MIM_Auditor\MCS.EventLogScavanger\obj\Debug\MCS.EventLogScavanger.csproj.CoreCompileInputs.cache
 C:\Users\dahodge\Desktop\MIM_Auditor\MCS.EventLogScavanger\obj\Debug\MCS.EventLogScavanger.exe
 C:\Users\dahodge\Desktop\MIM_Auditor\MCS.EventLogScavanger\obj\Debug\MCS.EventLogScavanger.pdb
+C:\Users\dhodge-admin\Source\Repos\DaveHodgeDev\MIMAuditor\MCS.EventLogScavanger\bin\Debug\MCS.EventLogScavanger.exe.config
+C:\Users\dhodge-admin\Source\Repos\DaveHodgeDev\MIMAuditor\MCS.EventLogScavanger\bin\Debug\MCS.EventLogScavanger.exe
+C:\Users\dhodge-admin\Source\Repos\DaveHodgeDev\MIMAuditor\MCS.EventLogScavanger\bin\Debug\MCS.EventLogScavanger.pdb
+C:\Users\dhodge-admin\Source\Repos\DaveHodgeDev\MIMAuditor\MCS.EventLogScavanger\obj\Debug\MCS.EventLogScavanger.csprojAssemblyReference.cache
+C:\Users\dhodge-admin\Source\Repos\DaveHodgeDev\MIMAuditor\MCS.EventLogScavanger\obj\Debug\MCS.EventLogScavanger.csproj.CoreCompileInputs.cache
+C:\Users\dhodge-admin\Source\Repos\DaveHodgeDev\MIMAuditor\MCS.EventLogScavanger\obj\Debug\MCS.EventLogScavanger.exe
+C:\Users\dhodge-admin\Source\Repos\DaveHodgeDev\MIMAuditor\MCS.EventLogScavanger\obj\Debug\MCS.EventLogScavanger.pdb
+C:\Users\dhodge-admin\Source\Repos\DaveHodgeDev\MIMAuditor\MCS.EventLogScavanger\bin\Debug\MCS.EventLogMonitor.dll
+C:\Users\dhodge-admin\Source\Repos\DaveHodgeDev\MIMAuditor\MCS.EventLogScavanger\bin\Debug\Encrypt_Class.dll
+C:\Users\dhodge-admin\Source\Repos\DaveHodgeDev\MIMAuditor\MCS.EventLogScavanger\bin\Debug\Newtonsoft.Json.dll
+C:\Users\dhodge-admin\Source\Repos\DaveHodgeDev\MIMAuditor\MCS.EventLogScavanger\bin\Debug\MCS.EventLogMonitor.pdb
+C:\Users\dhodge-admin\Source\Repos\DaveHodgeDev\MIMAuditor\MCS.EventLogScavanger\bin\Debug\Encrypt_Class.pdb
+C:\Users\dhodge-admin\Source\Repos\DaveHodgeDev\MIMAuditor\MCS.EventLogScavanger\obj\Debug\MCS.EventLogScavanger.csproj.CopyComplete

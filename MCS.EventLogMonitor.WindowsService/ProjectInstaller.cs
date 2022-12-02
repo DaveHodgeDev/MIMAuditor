@@ -82,7 +82,7 @@ namespace MCS.EventLogMonitor.WindowsService
         {
             try
             {
-                string WORKSPACEKEY = Context.Parameters["WORKSPACEKEY"].Trim();
+                //string WORKSPACEKEY = Context.Parameters["WORKSPACEKEY"].Trim();
                 string WORKSPACEID = Context.Parameters["WORKSPACEID"].Trim();
                 //MessageBox.Show("WorkspaceID: " + WORKSPACEID);
                 //MessageBox.Show("WorkspaceKey: " + WORKSPACEKEY);
@@ -134,9 +134,9 @@ namespace MCS.EventLogMonitor.WindowsService
                                         attribute.Value = WORKSPACEID;
                                         break;
 
-                                    case "workspaceKey":
-                                        attribute.Value = WORKSPACEKEY;
-                                        break;
+                                    //case "workspaceKey":
+                                    //    attribute.Value = WORKSPACEKEY;
+                                    //    break;
                                 }
                             }
                         }
