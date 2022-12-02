@@ -90,6 +90,3 @@ Below are some additional KQL statements that can be added to the where clause t
 
 It is possible to rename the columns to a more meaningful name than the values that are stored in the MIM Request data. 
 - **RequestCreated = CreatedTime_t** will provide a friendly name(**RequestCreated**) to the table's column (**CreatedTime_t**)
-
-
-
